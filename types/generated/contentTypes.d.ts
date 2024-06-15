@@ -610,13 +610,13 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
+    title: Attribute.String & Attribute.Required;
     description: Attribute.Text &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    slug: Attribute.UID<"api::article.article", "title">;
+    slug: Attribute.UID<"api::article.article", "title"> & Attribute.Required;
     cover: Attribute.Media<"images" | "files" | "videos">;
     category: Attribute.Relation<"api::article.article", "manyToOne", "api::category.category">;
     blocks: Attribute.DynamicZone<
@@ -809,6 +809,7 @@ export interface ApiPagePage extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.String &
+      Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;

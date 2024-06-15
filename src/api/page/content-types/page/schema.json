@@ -53,7 +53,8 @@
         }
       },
       "type": "string",
-      "regex": "^$|^[a-zA-Z/-]+$"
+      "regex": "^$|^[a-zA-Z/-]+$",
+      "required": true
     },
     "heading": {
       "pluginOptions": {
